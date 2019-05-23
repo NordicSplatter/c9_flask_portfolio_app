@@ -11,12 +11,12 @@ app = Flask(__name__)
 #to the home page '/'
 @app.route('/', methods=['GET'])
 def home_page():
-	return render_template('index.html', name=new_name) #show user the html file
+	return render_template('index.html') #show user the html file
 
 @app.route('/<name>')
 def profile(name):
-	new_name = name + " understands that a zen mind will forever be a student's mind"
-	return render_template('index.html', name=name)
+	new_name = str(name) + " understands that a zen mind will forever be a student's mind"
+	return render_template('index.html', new_name=name)
 
 
 @app.route('/add_numbers', methods=['GET','POST'])
